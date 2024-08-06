@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotNet8.DoctorAppointmentBookingSystem.Db\DotNet8.DoctorAppointmentBookingSystem.Db.csproj" />
-    <ProjectReference Include="..\DotNet8.DoctorAppointmentBookingSystem.Models\DotNet8.DoctorAppointmentBookingSystem.Models.csproj" />
+    <ProjectReference Include="..\DotNet8.DoctorAppointmentBookingSystem.Dtos\DotNet8.DoctorAppointmentBookingSystem.Dtos.csproj" />
   </ItemGroup>
 
 </Project>

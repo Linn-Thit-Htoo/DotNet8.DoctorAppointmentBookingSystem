@@ -1,4 +1,4 @@
-﻿namespace DotNet8.DoctorAppointmentBookingSystem.Api.Resources
+﻿namespace DotNet8.DoctorAppointmentBookingSystem.Dtos.Resources
 {
     public class MessageResource
     {

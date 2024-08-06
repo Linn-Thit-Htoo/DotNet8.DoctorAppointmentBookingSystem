@@ -1,7 +1,8 @@
 ﻿using DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
+using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Doctor;
+using DotNet8.DoctorAppointmentBookingSystem.Dtos.Utils;
 using DotNet8.DoctorAppointmentBookingSystem.Extensions;
-using DotNet8.DoctorAppointmentBookingSystem.Models.Features.Doctor;
-using DotNet8.DoctorAppointmentBookingSystem.Models.Utils;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,24 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor
             catch (Exception ex)
             {
                 result = Result<DoctorResponseModel>.Failure(ex);
+            }
+
+            return result;
+        }
+
+        public async Task<Result<IEnumerable<DoctorDto>>> GetDoctorListAsync(CancellationToken cancellationToken)
+        {
+            Result<IEnumerable<DoctorDto>> result;
+            try
+            {
+                var lst = await _context.TblDoctors.OrderByDescending(x => x.DoctorId)
+                    .ToListAsync();
+
+                result = Result<IEnumerable<DoctorDto>>.Success(lst.Select(x => x.ToDto()));
+            }
+            catch (Exception ex)
+            {
+                result = Result<IEnumerable<DoctorDto>>.Failure(ex);
             }
 
             return result;

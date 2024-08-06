@@ -1,4 +1,4 @@
-﻿namespace DotNet8.DoctorAppointmentBookingSystem.Api.Enums
+﻿namespace DotNet8.DoctorAppointmentBookingSystem.Dtos.Enums
 {
     public enum EnumStatusCode
     {
