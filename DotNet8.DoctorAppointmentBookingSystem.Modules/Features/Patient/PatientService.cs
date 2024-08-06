@@ -20,12 +20,12 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient
             _context = context;
         }
 
-        public async Task<Result<IEnumerable<PatientDto>>> GetPatients()
+        public async Task<Result<IEnumerable<PatientDto>>> GetPatientsAsync(CancellationToken cancellationToken)
         {
             Result<IEnumerable<PatientDto>> result;
             try
             {
-                var lst = await _context.TblPatients.OrderByDescending(x => x.PatientId).ToListAsync();
+                var lst = await _context.TblPatients.OrderByDescending(x => x.PatientId).ToListAsync(cancellationToken);
                 result = Result<IEnumerable<PatientDto>>.Success(lst.Select(x => x.ToDto()));
             }
             catch (Exception ex)
@@ -33,6 +33,29 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient
                 result = Result<IEnumerable<PatientDto>>.Failure(ex);
             }
 
+            return result;
+        }
+
+        public async Task<Result<PatientDto>> GetPatientByIdAsync(string id, CancellationToken cancellationToken)
+        {
+            Result<PatientDto> result;
+            try
+            {
+                var item = await _context.TblPatients.FindAsync([id], cancellationToken: cancellationToken);
+                if (item is null)
+                {
+                    result = Result<PatientDto>.NotFound("No Patient Found.");
+                    goto result;
+                }
+
+                result = Result<PatientDto>.Success(item.ToDto());
+            }
+            catch (Exception ex)
+            {
+                result = Result<PatientDto>.Failure(ex);
+            }
+
+        result:
             return result;
         }
     }

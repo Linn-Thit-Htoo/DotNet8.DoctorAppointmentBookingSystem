@@ -10,6 +10,7 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient
 {
     public interface IPatientService
     {
-        Task<Result<IEnumerable<PatientDto>>> GetPatients();
+        Task<Result<IEnumerable<PatientDto>>> GetPatientsAsync(CancellationToken cancellationToken);
+        Task<Result<PatientDto>> GetPatientByIdAsync(string id, CancellationToken cancellationToken);
     }
 }
