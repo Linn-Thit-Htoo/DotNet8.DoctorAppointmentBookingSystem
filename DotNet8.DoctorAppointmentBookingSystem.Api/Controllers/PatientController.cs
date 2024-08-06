@@ -11,12 +11,16 @@ public class PatientController : BaseController
         _patientService = patientService;
     }
 
+    #region Get Patients
+
     [HttpGet]
     public async Task<IActionResult> GetPatients(CancellationToken cancellationToken)
     {
         var result = await _patientService.GetPatientsAsync(cancellationToken);
         return Content(result);
     }
+
+    #endregion
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetPatient(string id, CancellationToken cancellationToken)
