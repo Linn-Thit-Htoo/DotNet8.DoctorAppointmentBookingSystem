@@ -38,14 +38,14 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Api.Controllers
             return Content(result);
         }
 
-        [HttpGet]
+        [HttpGet("doctor/{doctorId}")]
         public async Task<IActionResult> GetAppointmentsByDoctorId(string doctorId, CancellationToken cancellationToken)
         {
             var result = await _appointmentService.GetAppointmentsByDoctorIdAsync(doctorId, cancellationToken);
             return Content(result);
         }
 
-        [HttpGet]
+        [HttpGet("patient/{patientId}")]
         public async Task<IActionResult> GetAppointmentsByPatientId(string patientId, CancellationToken cancellationToken)
         {
             var result = await _appointmentService.GetAppointmentsByPatientIdAsync(patientId, cancellationToken);
