@@ -46,8 +46,8 @@ public static class Extension
         {
             AppointmentId = dataModel.AppointmentId,
             Date = dataModel.Date,
-            DoctorId = dataModel .DoctorId,
-            PatientId= dataModel .PatientId,
+            DoctorId = dataModel.DoctorId,
+            PatientId = dataModel.PatientId,
             Slot = dataModel.Slot
         };
     }
@@ -58,7 +58,7 @@ public static class Extension
         {
             AppointmentId = Ulid.NewUlid().ToString(),
             Date = DateTime.Now,
-            DoctorId= appointmentDto.DoctorId,
+            DoctorId = appointmentDto.DoctorId,
             PatientId = appointmentDto.PatientId,
             Slot = appointmentDto.Slot
         };
