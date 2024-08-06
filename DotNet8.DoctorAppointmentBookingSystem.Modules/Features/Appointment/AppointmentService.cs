@@ -83,9 +83,27 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
             return result;
         }
 
-        public Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByPatientIdAsync(int patientId)
+        public async Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByPatientIdAsync(string patientId)
         {
-            throw new NotImplementedException();
+            Result<IEnumerable<AppointmentDto>> result;
+            try
+            {
+                var appointments = await _context.TblAppointments.Where(x => x.PatientId == patientId).ToListAsync();
+                if (appointments is null)
+                {
+                    result = Result<IEnumerable<AppointmentDto>>.NotFound("No Appointment Found.");
+                    goto result;
+                }
+
+                result = Result<IEnumerable<AppointmentDto>>.Success(appointments.Select(x => x.ToDto()));
+            }
+            catch (Exception ex)
+            {
+                result = Result<IEnumerable<AppointmentDto>>.Failure(ex);
+            }
+
+        result:
+            return result;
         }
 
         public async Task<Result<AppointmentDto>> BookAppointmentAsync(CreateAppointmentDto appointmentDto, CancellationToken cancellationToken)
