@@ -100,6 +100,8 @@ public class AppointmentService : IAppointmentService
 
     #endregion
 
+    #region Get Appointments By Patient Id Async
+
     public async Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByPatientIdAsync(
         string patientId,
         CancellationToken cancellationToken
@@ -129,6 +131,8 @@ public class AppointmentService : IAppointmentService
     result:
         return result;
     }
+
+    #endregion
 
     public async Task<Result<AppointmentDto>> BookAppointmentAsync(
         CreateAppointmentDto appointmentDto,
