@@ -20,24 +20,6 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor
             _context = context;
         }
 
-        public async Task<Result<DoctorDto>> AddDoctorAsync(CreateDoctorDto requestModel, CancellationToken cancellationToken)
-        {
-            Result<DoctorDto> result;
-            try
-            {
-                await _context.TblDoctors.AddAsync(requestModel.ToEntity(), cancellationToken);
-                await _context.SaveChangesAsync(cancellationToken);
-
-                result = Result<DoctorDto>.SaveSuccess();
-            }
-            catch (Exception ex)
-            {
-                result = Result<DoctorDto>.Failure(ex);
-            }
-
-            return result;
-        }
-
         public async Task<Result<IEnumerable<DoctorDto>>> GetDoctorListAsync(CancellationToken cancellationToken)
         {
             Result<IEnumerable<DoctorDto>> result;
@@ -51,6 +33,40 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor
             catch (Exception ex)
             {
                 result = Result<IEnumerable<DoctorDto>>.Failure(ex);
+            }
+
+            return result;
+        }
+
+        public async Task<Result<DoctorDto>> GetDoctorByIdAsync(string id, CancellationToken cancellationToken)
+        {
+            Result<DoctorDto> result;
+            try
+            {
+                var item = await _context.TblDoctors.FindAsync(id);
+                result = Result<DoctorDto>.Success(item!.ToDto());
+            }
+            catch (Exception ex)
+            {
+                result = Result<DoctorDto>.Failure(ex);
+            }
+
+            return result;
+        }
+
+        public async Task<Result<DoctorDto>> AddDoctorAsync(CreateDoctorDto requestModel, CancellationToken cancellationToken)
+        {
+            Result<DoctorDto> result;
+            try
+            {
+                await _context.TblDoctors.AddAsync(requestModel.ToEntity(), cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                result = Result<DoctorDto>.SaveSuccess();
+            }
+            catch (Exception ex)
+            {
+                result = Result<DoctorDto>.Failure(ex);
             }
 
             return result;

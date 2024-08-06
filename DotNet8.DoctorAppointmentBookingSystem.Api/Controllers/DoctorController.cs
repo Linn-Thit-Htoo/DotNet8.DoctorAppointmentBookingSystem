@@ -17,7 +17,7 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetDoctor(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetDoctors(CancellationToken cancellationToken)
         {
             var result = await _doctorService.GetDoctorListAsync(cancellationToken);
             return Content(result);
