@@ -32,6 +32,8 @@ public class DoctorService : IDoctorService
 
     #endregion
 
+    #region Get Doctor By Id Async
+
     public async Task<Result<DoctorDto>> GetDoctorByIdAsync(
         string id,
         CancellationToken cancellationToken
@@ -60,6 +62,8 @@ public class DoctorService : IDoctorService
     result:
         return result;
     }
+
+    #endregion
 
     public async Task<Result<DoctorDto>> AddDoctorAsync(
         CreateDoctorDto requestModel,
