@@ -111,6 +111,20 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
             Result<AppointmentDto> result;
             try
             {
+                var doctor = await _context.TblDoctors.FindAsync([appointmentDto.DoctorId], cancellationToken: cancellationToken);
+                if (doctor is null)
+                {
+                    result = Result<AppointmentDto>.NotFound("Doctor Not Found.");
+                    goto result;
+                }
+
+                var patient = await _context.TblPatients.FindAsync([appointmentDto.PatientId], cancellationToken: cancellationToken);
+                if (doctor is null)
+                {
+                    result = Result<AppointmentDto>.NotFound("Patient Not Found.");
+                    goto result;
+                }
+
                 await _context.AddAsync(appointmentDto.ToEntity(), cancellationToken);
                 await _context.SaveChangesAsync(cancellationToken);
 
@@ -121,6 +135,7 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
                 result = Result<AppointmentDto>.Failure(ex);
             }
 
+        result:
             return result;
         }
     }
