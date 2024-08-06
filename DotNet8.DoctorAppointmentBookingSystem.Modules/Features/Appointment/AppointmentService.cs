@@ -26,7 +26,7 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
             Result<IEnumerable<AppointmentDto>> result;
             try
             {
-                var lst = await _context.TblAppointments.OrderByDescending(x => x.AppointmentId).ToListAsync();
+                var lst = await _context.TblAppointments.OrderByDescending(x => x.AppointmentId).ToListAsync(cancellationToken: cancellationToken);
                 result = Result<IEnumerable<AppointmentDto>>.Success(lst.Select(x => x.ToDto()));
             }
             catch (Exception ex)
@@ -57,6 +57,24 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
             }
 
         result:
+            return result;
+        }
+
+        public async Task<Result<AppointmentDto>> BookAppointmentAsync(CreateAppointmentDto appointmentDto, CancellationToken cancellationToken)
+        {
+            Result<AppointmentDto> result;
+            try
+            {
+                await _context.AddAsync(appointmentDto.ToEntity(), cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                result = Result<AppointmentDto>.SaveSuccess();
+            }
+            catch (Exception ex)
+            {
+                result = Result<AppointmentDto>.Failure(ex);
+            }
+
             return result;
         }
     }

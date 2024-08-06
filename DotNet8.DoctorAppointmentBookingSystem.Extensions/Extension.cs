@@ -61,5 +61,17 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Extensions
                 Slot = dataModel.Slot
             };
         }
+
+        public static TblAppointment ToEntity(this CreateAppointmentDto appointmentDto)
+        {
+            return new TblAppointment
+            {
+                AppointmentId = Ulid.NewUlid().ToString(),
+                Date = DateTime.Now,
+                DoctorId= appointmentDto.DoctorId,
+                PatientId = appointmentDto.PatientId,
+                Slot = appointmentDto.Slot
+            };
+        }
     }
 }
