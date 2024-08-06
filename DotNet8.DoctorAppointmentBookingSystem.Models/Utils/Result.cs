@@ -1,6 +1,6 @@
 ﻿using DotNet8.DoctorAppointmentBookingSystem.Api.Enums;
 
-namespace DotNet8.DoctorAppointmentBookingSystem.Api.Utils
+namespace DotNet8.DoctorAppointmentBookingSystem.Models.Utils
 {
     public class Result<T>
     {

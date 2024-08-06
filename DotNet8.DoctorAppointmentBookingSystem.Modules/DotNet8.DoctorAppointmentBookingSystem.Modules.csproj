@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet8.DoctorAppointmentBookingSystem.Db\DotNet8.DoctorAppointmentBookingSystem.Db.csproj" />
+    <ProjectReference Include="..\DotNet8.DoctorAppointmentBookingSystem.Models\DotNet8.DoctorAppointmentBookingSystem.Models.csproj" />
+  </ItemGroup>
+
 </Project>
