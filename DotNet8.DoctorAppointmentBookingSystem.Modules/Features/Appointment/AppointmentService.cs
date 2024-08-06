@@ -134,6 +134,8 @@ public class AppointmentService : IAppointmentService
 
     #endregion
 
+    #region Book Appointment Async
+
     public async Task<Result<AppointmentDto>> BookAppointmentAsync(
         CreateAppointmentDto appointmentDto,
         CancellationToken cancellationToken
@@ -175,4 +177,6 @@ public class AppointmentService : IAppointmentService
     result:
         return result;
     }
+
+    #endregion
 }
