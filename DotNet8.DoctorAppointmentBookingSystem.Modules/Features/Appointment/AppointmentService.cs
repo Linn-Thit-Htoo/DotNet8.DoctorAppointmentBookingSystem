@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +34,29 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
                 result = Result<IEnumerable<AppointmentDto>>.Failure(ex);
             }
 
+            return result;
+        }
+
+        public async Task<Result<AppointmentDto>> GetAppointmentByIdAsync(string id, CancellationToken cancellationToken)
+        {
+            Result<AppointmentDto> result;
+            try
+            {
+                var appointment = await _context.TblAppointments.FindAsync([id], cancellationToken: cancellationToken);
+                if (appointment is null)
+                {
+                    result = Result<AppointmentDto>.NotFound("Appointment Not Found.");
+                    goto result;
+                }
+
+                result = Result<AppointmentDto>.Success(appointment.ToDto());
+            }
+            catch (Exception ex)
+            {
+                result = Result<AppointmentDto>.Failure(ex);
+            }
+
+        result:
             return result;
         }
     }

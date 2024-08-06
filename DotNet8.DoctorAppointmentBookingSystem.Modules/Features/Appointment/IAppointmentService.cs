@@ -11,5 +11,6 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
     public interface IAppointmentService
     {
         Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsAsync(CancellationToken cancellationToken);
+        Task<Result<AppointmentDto>> GetAppointmentByIdAsync(string id, CancellationToken cancellationToken);
     }
 }
