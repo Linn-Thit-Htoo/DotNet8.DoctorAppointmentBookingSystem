@@ -60,12 +60,12 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
             return result;
         }
 
-        public async Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByDoctorIdAsync(string doctorId)
+        public async Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByDoctorIdAsync(string doctorId, CancellationToken cancellationToken)
         {
             Result<IEnumerable<AppointmentDto>> result;
             try
             {
-                var appointments = await _context.TblAppointments.Where(x => x.DoctorId == doctorId).ToListAsync();
+                var appointments = await _context.TblAppointments.Where(x => x.DoctorId == doctorId).ToListAsync(cancellationToken: cancellationToken);
                 if (appointments is null)
                 {
                     result = Result<IEnumerable<AppointmentDto>>.NotFound("No Appointment Found.");
@@ -83,12 +83,12 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
             return result;
         }
 
-        public async Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByPatientIdAsync(string patientId)
+        public async Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByPatientIdAsync(string patientId, CancellationToken cancellationToken)
         {
             Result<IEnumerable<AppointmentDto>> result;
             try
             {
-                var appointments = await _context.TblAppointments.Where(x => x.PatientId == patientId).ToListAsync();
+                var appointments = await _context.TblAppointments.Where(x => x.PatientId == patientId).ToListAsync(cancellationToken: cancellationToken);
                 if (appointments is null)
                 {
                     result = Result<IEnumerable<AppointmentDto>>.NotFound("No Appointment Found.");
