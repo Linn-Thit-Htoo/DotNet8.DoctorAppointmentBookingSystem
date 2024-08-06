@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
+﻿namespace DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
 
 public partial class AppDbContext : DbContext
 {
-    public AppDbContext()
-    {
-    }
+    public AppDbContext() { }
 
     public AppDbContext(DbContextOptions<AppDbContext> options)
-        : base(options)
-    {
-    }
+        : base(options) { }
 
     public virtual DbSet<TblAppointment> TblAppointments { get; set; }
 
@@ -22,6 +14,7 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<TblFeedback> TblFeedbacks { get; set; }
 
     public virtual DbSet<TblPatient> TblPatients { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<TblAppointment>(entity =>
@@ -36,12 +29,16 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.PatientId).HasMaxLength(50);
             entity.Property(e => e.Slot).HasMaxLength(50);
 
-            entity.HasOne(d => d.Doctor).WithMany(p => p.TblAppointments)
+            entity
+                .HasOne(d => d.Doctor)
+                .WithMany(p => p.TblAppointments)
                 .HasForeignKey(d => d.DoctorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Tbl_Appointment_Tbl_Doctor");
 
-            entity.HasOne(d => d.Patient).WithMany(p => p.TblAppointments)
+            entity
+                .HasOne(d => d.Patient)
+                .WithMany(p => p.TblAppointments)
                 .HasForeignKey(d => d.PatientId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Tbl_Appointment_Tbl_Patient");
@@ -68,7 +65,9 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Content).HasMaxLength(50);
             entity.Property(e => e.PatientId).HasMaxLength(50);
 
-            entity.HasOne(d => d.Patient).WithMany(p => p.TblFeedbacks)
+            entity
+                .HasOne(d => d.Patient)
+                .WithMany(p => p.TblFeedbacks)
                 .HasForeignKey(d => d.PatientId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Tbl_Feedback_Tbl_Patient");
