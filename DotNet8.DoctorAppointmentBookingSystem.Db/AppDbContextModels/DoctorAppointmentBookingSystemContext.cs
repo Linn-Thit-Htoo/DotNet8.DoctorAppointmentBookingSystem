@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace DotNet8.DoctorAppointmentBookingSystem.Shared.Models.AppDbContextModels;
+namespace DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
 
 public partial class DoctorAppointmentBookingSystemContext : DbContext
 {

@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotNet8.DoctorAppointmentBookingSystem.Modules\DotNet8.DoctorAppointmentBookingSystem.Modules.csproj" />
-    <ProjectReference Include="..\DotNet8.DoctorAppointmentBookingSystem.Shared.Models\DotNet8.DoctorAppointmentBookingSystem.Shared.Models.csproj" />
   </ItemGroup>
 
 </Project>
