@@ -1,6 +1,4 @@
-﻿using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Appointment;
-using DotNet8.DoctorAppointmentBookingSystem.Dtos.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

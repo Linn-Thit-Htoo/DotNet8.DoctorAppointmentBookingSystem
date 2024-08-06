@@ -1,8 +1,4 @@
-﻿using DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
-using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Doctor;
-using DotNet8.DoctorAppointmentBookingSystem.Dtos.Utils;
-using DotNet8.DoctorAppointmentBookingSystem.Extensions;
-using Microsoft.EntityFrameworkCore;
+﻿using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Doctor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
