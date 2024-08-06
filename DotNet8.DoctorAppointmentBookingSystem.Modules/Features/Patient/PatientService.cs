@@ -33,6 +33,8 @@ public class PatientService : IPatientService
 
     #endregion
 
+    #region Get Patient By Id Async
+
     public async Task<Result<PatientDto>> GetPatientByIdAsync(
         string id,
         CancellationToken cancellationToken
@@ -58,9 +60,11 @@ public class PatientService : IPatientService
             result = Result<PatientDto>.Failure(ex);
         }
 
-        result:
+    result:
         return result;
     }
+
+    #endregion
 
     public async Task<Result<PatientDto>> AddPatientAsync(
         CreatePatientDto patientDto,
