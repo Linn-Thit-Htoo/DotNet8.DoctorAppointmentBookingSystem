@@ -1,0 +1,6 @@
+@DotNet8.DoctorAppointmentBookingSystem.Api_HostAddress = http://localhost:5262
+
+GET {{DotNet8.DoctorAppointmentBookingSystem.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35005.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F5975672-8FD6-4328-8DC2-88BBC78548F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{427E1B8E-1267-434D-A1DC-7D922E4FD433}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.DoctorAppointmentBookingSystem.Modules", "DotNet8.DoctorAppointmentBookingSystem.Modules\DotNet8.DoctorAppointmentBookingSystem.Modules.csproj", "{5498D6C0-E34B-4B5D-96EE-021E12FEE110}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{8DC871E5-BA63-480B-91D5-5937567182D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.DoctorAppointmentBookingSystem.Api", "DotNet8.DoctorAppointmentBookingSystem.Api\DotNet8.DoctorAppointmentBookingSystem.Api.csproj", "{28F98976-DBC9-4F8E-97F1-C0D985239F9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5498D6C0-E34B-4B5D-96EE-021E12FEE110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5498D6C0-E34B-4B5D-96EE-021E12FEE110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5498D6C0-E34B-4B5D-96EE-021E12FEE110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5498D6C0-E34B-4B5D-96EE-021E12FEE110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F98976-DBC9-4F8E-97F1-C0D985239F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F98976-DBC9-4F8E-97F1-C0D985239F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F98976-DBC9-4F8E-97F1-C0D985239F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F98976-DBC9-4F8E-97F1-C0D985239F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{427E1B8E-1267-434D-A1DC-7D922E4FD433} = {F5975672-8FD6-4328-8DC2-88BBC78548F3}
+		{5498D6C0-E34B-4B5D-96EE-021E12FEE110} = {427E1B8E-1267-434D-A1DC-7D922E4FD433}
+		{8DC871E5-BA63-480B-91D5-5937567182D0} = {F5975672-8FD6-4328-8DC2-88BBC78548F3}
+		{28F98976-DBC9-4F8E-97F1-C0D985239F9F} = {8DC871E5-BA63-480B-91D5-5937567182D0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B06A6794-0E13-48B0-9F8D-650711BAAF1D}
+	EndGlobalSection
+EndGlobal
