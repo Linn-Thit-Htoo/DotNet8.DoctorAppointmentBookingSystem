@@ -1,5 +1,4 @@
 ﻿using DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
-using DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor;
 using DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient;
 using Microsoft.EntityFrameworkCore;
 
