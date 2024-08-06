@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
+﻿namespace DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
 
 public partial class TblAppointment
 {
