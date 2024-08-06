@@ -11,12 +11,16 @@ public class DoctorController : BaseController
         _doctorService = doctorService;
     }
 
+    #region Get Doctors
+
     [HttpGet]
     public async Task<IActionResult> GetDoctors(CancellationToken cancellationToken)
     {
         var result = await _doctorService.GetDoctorListAsync(cancellationToken);
         return Content(result);
     }
+
+    #endregion
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetDoctor(string id, CancellationToken cancellationToken)
