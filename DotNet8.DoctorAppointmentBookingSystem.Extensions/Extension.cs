@@ -1,5 +1,6 @@
 ﻿using DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
 using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Doctor;
+using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Patient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,15 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Extensions
                 DoctorId = dataModel.DoctorId,
                 DoctorName = dataModel.DoctorName,
                 Speciality = dataModel.Speciality
+            };
+        }
+
+        public static PatientDto ToDto(this TblPatient dataModel)
+        {
+            return new PatientDto
+            {
+                PatientId = dataModel.PatientId,
+                PatientName = dataModel.PatientName
             };
         }
     }
