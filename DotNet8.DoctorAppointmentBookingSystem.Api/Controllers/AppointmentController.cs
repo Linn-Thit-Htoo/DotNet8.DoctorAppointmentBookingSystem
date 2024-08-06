@@ -2,6 +2,7 @@
 using DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
 
 namespace DotNet8.DoctorAppointmentBookingSystem.Api.Controllers
 {
@@ -41,6 +42,13 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Api.Controllers
         public async Task<IActionResult> GetAppointmentsByDoctorId(string doctorId, CancellationToken cancellationToken)
         {
             var result = await _appointmentService.GetAppointmentsByDoctorIdAsync(doctorId, cancellationToken);
+            return Content(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAppointmentsByPatientId(string patientId, CancellationToken cancellationToken)
+        {
+            var result = await _appointmentService.GetAppointmentsByPatientIdAsync(patientId, cancellationToken);
             return Content(result);
         }
     }
