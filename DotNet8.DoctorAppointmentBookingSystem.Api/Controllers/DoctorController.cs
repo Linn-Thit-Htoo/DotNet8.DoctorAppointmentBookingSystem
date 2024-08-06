@@ -22,12 +22,16 @@ public class DoctorController : BaseController
 
     #endregion
 
+    #region Get Doctor
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetDoctor(string id, CancellationToken cancellationToken)
     {
         var result = await _doctorService.GetDoctorByIdAsync(id, cancellationToken);
         return Content(result);
     }
+
+    #endregion
 
     [HttpPost]
     public async Task<IActionResult> CreateDoctor(
