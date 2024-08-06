@@ -17,7 +17,17 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Api.Utils
 
         public static Result<T> SaveSuccess(string message = "Saving Successful.", EnumStatusCode statusCode = EnumStatusCode.Success)
             => Result<T>.Success(message, statusCode);
+        
         public static Result<T> UpdateSuccess(string message = "Updating Successful.", EnumStatusCode statusCode = EnumStatusCode.Success)
             => Result<T>.Success(message, statusCode);
+
+        public static Result<T> DeleteSuccess(string message = "Deleting Successful.", EnumStatusCode statusCode = EnumStatusCode.Success)
+            => Result<T>.Success(message, statusCode);
+
+        public static Result<T> Failure(string message = "Fail.", EnumStatusCode statusCode = EnumStatusCode.BadRequest)
+            => new() { Message = message, StatusCode = statusCode, IsSuccess = false };
+
+        public static Result<T> Failure(Exception ex)
+            => new() { Message = ex.ToString(), StatusCode = EnumStatusCode.InternalServerError, IsSuccess = false };
     }
 }
