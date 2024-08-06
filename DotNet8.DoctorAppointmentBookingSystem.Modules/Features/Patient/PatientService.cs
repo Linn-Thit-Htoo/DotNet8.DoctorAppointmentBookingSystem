@@ -9,6 +9,8 @@ public class PatientService : IPatientService
         _context = context;
     }
 
+    #region Get Patients Async
+
     public async Task<Result<IEnumerable<PatientDto>>> GetPatientsAsync(
         CancellationToken cancellationToken
     )
@@ -28,6 +30,8 @@ public class PatientService : IPatientService
 
         return result;
     }
+
+    #endregion
 
     public async Task<Result<PatientDto>> GetPatientByIdAsync(
         string id,
