@@ -66,6 +66,12 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
             try
             {
                 var appointments = await _context.TblAppointments.Where(x => x.DoctorId == doctorId).ToListAsync();
+                if (appointments is null)
+                {
+                    result = Result<IEnumerable<AppointmentDto>>.NotFound("No Appointment Found.");
+                    goto result;
+                }
+
                 result = Result<IEnumerable<AppointmentDto>>.Success(appointments.Select(x => x.ToDto()));
             }
             catch (Exception ex)
