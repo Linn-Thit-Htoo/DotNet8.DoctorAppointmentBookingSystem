@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.DoctorAppointmentBo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.DoctorAppointmentBookingSystem.Shared", "DotNet8.DoctorAppointmentBookingSystem.Shared\DotNet8.DoctorAppointmentBookingSystem.Shared.csproj", "{1D6AD9C2-4D18-44AC-889C-12477F1D42B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.DoctorAppointmentBookingSystem.Extensions", "DotNet8.DoctorAppointmentBookingSystem.Extensions\DotNet8.DoctorAppointmentBookingSystem.Extensions.csproj", "{AEDA6C30-E0A9-4AB3-9D49-1EE2A200AE8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{1D6AD9C2-4D18-44AC-889C-12477F1D42B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D6AD9C2-4D18-44AC-889C-12477F1D42B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D6AD9C2-4D18-44AC-889C-12477F1D42B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEDA6C30-E0A9-4AB3-9D49-1EE2A200AE8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEDA6C30-E0A9-4AB3-9D49-1EE2A200AE8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEDA6C30-E0A9-4AB3-9D49-1EE2A200AE8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEDA6C30-E0A9-4AB3-9D49-1EE2A200AE8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{84E6BF9A-6E92-404A-BBFF-3F4B61D745F3} = {B857795E-1D66-4290-9228-BF1FD2461907}
 		{46D976A0-1D6B-41CB-92B6-5607C2FB099D} = {B857795E-1D66-4290-9228-BF1FD2461907}
 		{1D6AD9C2-4D18-44AC-889C-12477F1D42B4} = {B857795E-1D66-4290-9228-BF1FD2461907}
+		{AEDA6C30-E0A9-4AB3-9D49-1EE2A200AE8F} = {B857795E-1D66-4290-9228-BF1FD2461907}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B06A6794-0E13-48B0-9F8D-650711BAAF1D}

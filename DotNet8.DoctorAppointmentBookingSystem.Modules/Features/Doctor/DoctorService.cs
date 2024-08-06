@@ -1,4 +1,5 @@
 ﻿using DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
+using DotNet8.DoctorAppointmentBookingSystem.Extensions;
 using DotNet8.DoctorAppointmentBookingSystem.Models.Features.Doctor;
 using DotNet8.DoctorAppointmentBookingSystem.Models.Utils;
 using System;
@@ -18,9 +19,22 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor
             _context = context;
         }
 
-        public Task<Result<DoctorResponseModel>> AddDoctor(DoctorRequestModel requestModel, CancellationToken cancellationToken)
+        public async Task<Result<DoctorResponseModel>> AddDoctor(DoctorRequestModel requestModel, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            Result<DoctorResponseModel> result;
+            try
+            {
+                await _context.TblDoctors.AddAsync(requestModel.ToEntity(), cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                result = Result<DoctorResponseModel>.SaveSuccess();
+            }
+            catch (Exception ex)
+            {
+                result = Result<DoctorResponseModel>.Failure(ex);
+            }
+
+            return result;
         }
     }
 }
