@@ -13,5 +13,7 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
         Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsAsync(CancellationToken cancellationToken);
         Task<Result<AppointmentDto>> GetAppointmentByIdAsync(string id, CancellationToken cancellationToken);
         Task<Result<AppointmentDto>> BookAppointmentAsync(CreateAppointmentDto appointment, CancellationToken cancellationToken);
+        Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByDoctorIdAsync(int doctorId);
+        Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByPatientIdAsync(int patientId);
     }
 }

@@ -60,6 +60,28 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment
             return result;
         }
 
+        public async Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByDoctorIdAsync(string doctorId)
+        {
+            Result<IEnumerable<AppointmentDto>> result;
+            try
+            {
+                var appointments = await _context.TblAppointments.Where(x => x.DoctorId == doctorId).ToListAsync();
+                result = Result<IEnumerable<AppointmentDto>>.Success(appointments.Select(x => x.ToDto()));
+            }
+            catch (Exception ex)
+            {
+                result = Result<IEnumerable<AppointmentDto>>.Failure(ex);
+            }
+
+        result:
+            return result;
+        }
+
+        public Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsByPatientIdAsync(int patientId)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Result<AppointmentDto>> BookAppointmentAsync(CreateAppointmentDto appointmentDto, CancellationToken cancellationToken)
         {
             Result<AppointmentDto> result;
