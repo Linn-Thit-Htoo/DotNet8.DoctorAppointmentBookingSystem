@@ -1,77 +1,66 @@
-﻿using DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
-using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Appointment;
-using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Doctor;
-using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Patient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DotNet8.DoctorAppointmentBookingSystem.Extensions;
 
-namespace DotNet8.DoctorAppointmentBookingSystem.Extensions
+public static class Extension
 {
-    public static class Extension
+    public static TblDoctor ToEntity(this CreateDoctorDto requestModel)
     {
-        public static TblDoctor ToEntity(this CreateDoctorDto requestModel)
+        return new TblDoctor
         {
-            return new TblDoctor
-            {
-                DoctorId = Ulid.NewUlid().ToString(),
-                DoctorName = requestModel.DoctorName,
-                Speciality = requestModel.Speciality
-            };
-        }
+            DoctorId = Ulid.NewUlid().ToString(),
+            DoctorName = requestModel.DoctorName,
+            Speciality = requestModel.Speciality
+        };
+    }
 
-        public static DoctorDto ToDto(this TblDoctor dataModel)
+    public static DoctorDto ToDto(this TblDoctor dataModel)
+    {
+        return new DoctorDto
         {
-            return new DoctorDto
-            {
-                DoctorId = dataModel.DoctorId,
-                DoctorName = dataModel.DoctorName,
-                Speciality = dataModel.Speciality
-            };
-        }
+            DoctorId = dataModel.DoctorId,
+            DoctorName = dataModel.DoctorName,
+            Speciality = dataModel.Speciality
+        };
+    }
 
-        public static PatientDto ToDto(this TblPatient dataModel)
+    public static PatientDto ToDto(this TblPatient dataModel)
+    {
+        return new PatientDto
         {
-            return new PatientDto
-            {
-                PatientId = dataModel.PatientId,
-                PatientName = dataModel.PatientName
-            };
-        }
+            PatientId = dataModel.PatientId,
+            PatientName = dataModel.PatientName
+        };
+    }
 
-        public static TblPatient ToEntity(this CreatePatientDto patientDto)
+    public static TblPatient ToEntity(this CreatePatientDto patientDto)
+    {
+        return new TblPatient
         {
-            return new TblPatient
-            {
-                PatientId = Ulid.NewUlid().ToString(),
-                PatientName = patientDto.PatientName
-            };
-        }
+            PatientId = Ulid.NewUlid().ToString(),
+            PatientName = patientDto.PatientName
+        };
+    }
 
-        public static AppointmentDto ToDto(this TblAppointment dataModel)
+    public static AppointmentDto ToDto(this TblAppointment dataModel)
+    {
+        return new AppointmentDto
         {
-            return new AppointmentDto
-            {
-                AppointmentId = dataModel.AppointmentId,
-                Date = dataModel.Date,
-                DoctorId = dataModel .DoctorId,
-                PatientId= dataModel .PatientId,
-                Slot = dataModel.Slot
-            };
-        }
+            AppointmentId = dataModel.AppointmentId,
+            Date = dataModel.Date,
+            DoctorId = dataModel .DoctorId,
+            PatientId= dataModel .PatientId,
+            Slot = dataModel.Slot
+        };
+    }
 
-        public static TblAppointment ToEntity(this CreateAppointmentDto appointmentDto)
+    public static TblAppointment ToEntity(this CreateAppointmentDto appointmentDto)
+    {
+        return new TblAppointment
         {
-            return new TblAppointment
-            {
-                AppointmentId = Ulid.NewUlid().ToString(),
-                Date = DateTime.Now,
-                DoctorId= appointmentDto.DoctorId,
-                PatientId = appointmentDto.PatientId,
-                Slot = appointmentDto.Slot
-            };
-        }
+            AppointmentId = Ulid.NewUlid().ToString(),
+            Date = DateTime.Now,
+            DoctorId= appointmentDto.DoctorId,
+            PatientId = appointmentDto.PatientId,
+            Slot = appointmentDto.Slot
+        };
     }
 }
