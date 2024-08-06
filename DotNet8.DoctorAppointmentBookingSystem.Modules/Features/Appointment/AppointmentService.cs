@@ -9,6 +9,8 @@ public class AppointmentService : IAppointmentService
         _context = context;
     }
 
+    #region Get Appointments Async
+
     public async Task<Result<IEnumerable<AppointmentDto>>> GetAppointmentsAsync(
         CancellationToken cancellationToken
     )
@@ -28,6 +30,8 @@ public class AppointmentService : IAppointmentService
 
         return result;
     }
+
+    #endregion
 
     public async Task<Result<AppointmentDto>> GetAppointmentByIdAsync(
         string id,
