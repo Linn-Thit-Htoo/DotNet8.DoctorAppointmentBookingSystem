@@ -33,6 +33,8 @@ public class PatientController : BaseController
 
     #endregion
 
+    #region Create Patient
+
     [HttpPost]
     public async Task<IActionResult> CreatePatient(
         [FromBody] CreatePatientDto patientDto,
@@ -42,4 +44,6 @@ public class PatientController : BaseController
         var result = await _patientService.AddPatientAsync(patientDto, cancellationToken);
         return Content(result);
     }
+
+    #endregion
 }
