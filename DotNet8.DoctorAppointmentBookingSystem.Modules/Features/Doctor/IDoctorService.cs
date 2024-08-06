@@ -10,6 +10,6 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor
 {
     public interface IDoctorService
     {
-        Task<Result<DoctorResponseModel>> AddDoctor(DoctorRequestModel requestModel, CancellationToken cancellationToken);
+        Task<Result<DoctorResponseModel>> AddDoctorAsync(DoctorRequestModel requestModel, CancellationToken cancellationToken);
     }
 }

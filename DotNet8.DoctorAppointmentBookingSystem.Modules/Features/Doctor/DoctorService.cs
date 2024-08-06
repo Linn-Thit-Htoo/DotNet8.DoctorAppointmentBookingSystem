@@ -19,7 +19,7 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor
             _context = context;
         }
 
-        public async Task<Result<DoctorResponseModel>> AddDoctor(DoctorRequestModel requestModel, CancellationToken cancellationToken)
+        public async Task<Result<DoctorResponseModel>> AddDoctorAsync(DoctorRequestModel requestModel, CancellationToken cancellationToken)
         {
             Result<DoctorResponseModel> result;
             try
