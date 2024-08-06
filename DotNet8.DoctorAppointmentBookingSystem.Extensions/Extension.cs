@@ -10,7 +10,7 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Extensions
 {
     public static class Extension
     {
-        public static TblDoctor ToEntity(this DoctorRequestModel requestModel)
+        public static TblDoctor ToEntity(this CreateDoctorDto requestModel)
         {
             return new TblDoctor
             {

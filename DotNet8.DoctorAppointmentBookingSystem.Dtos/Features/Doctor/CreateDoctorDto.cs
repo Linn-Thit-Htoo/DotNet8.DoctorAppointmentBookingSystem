@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Doctor
 {
-    public class DoctorRequestModel
+    public class CreateDoctorDto
     {
         public string DoctorName { get; set; } = null!;
 

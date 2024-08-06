@@ -20,19 +20,19 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor
             _context = context;
         }
 
-        public async Task<Result<DoctorResponseModel>> AddDoctorAsync(DoctorRequestModel requestModel, CancellationToken cancellationToken)
+        public async Task<Result<DoctorDto>> AddDoctorAsync(CreateDoctorDto requestModel, CancellationToken cancellationToken)
         {
-            Result<DoctorResponseModel> result;
+            Result<DoctorDto> result;
             try
             {
                 await _context.TblDoctors.AddAsync(requestModel.ToEntity(), cancellationToken);
                 await _context.SaveChangesAsync(cancellationToken);
 
-                result = Result<DoctorResponseModel>.SaveSuccess();
+                result = Result<DoctorDto>.SaveSuccess();
             }
             catch (Exception ex)
             {
-                result = Result<DoctorResponseModel>.Failure(ex);
+                result = Result<DoctorDto>.Failure(ex);
             }
 
             return result;
