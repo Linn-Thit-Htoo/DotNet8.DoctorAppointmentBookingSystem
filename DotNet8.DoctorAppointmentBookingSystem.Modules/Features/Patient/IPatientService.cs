@@ -1,16 +1,11 @@
-﻿using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Patient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient;
 
-namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient
+public interface IPatientService
 {
-    public interface IPatientService
-    {
-        Task<Result<IEnumerable<PatientDto>>> GetPatientsAsync(CancellationToken cancellationToken);
-        Task<Result<PatientDto>> GetPatientByIdAsync(string id, CancellationToken cancellationToken);
-        Task<Result<PatientDto>> AddPatientAsync(CreatePatientDto patientDto, CancellationToken cancellationToken);
-    }
+    Task<Result<IEnumerable<PatientDto>>> GetPatientsAsync(CancellationToken cancellationToken);
+    Task<Result<PatientDto>> GetPatientByIdAsync(string id, CancellationToken cancellationToken);
+    Task<Result<PatientDto>> AddPatientAsync(
+        CreatePatientDto patientDto,
+        CancellationToken cancellationToken
+    );
 }
