@@ -54,7 +54,7 @@ public class AppointmentService : IAppointmentService
             result = Result<AppointmentDto>.Failure(ex);
         }
 
-        result:
+    result:
         return result;
     }
 
@@ -84,7 +84,7 @@ public class AppointmentService : IAppointmentService
             result = Result<IEnumerable<AppointmentDto>>.Failure(ex);
         }
 
-        result:
+    result:
         return result;
     }
 
@@ -114,7 +114,7 @@ public class AppointmentService : IAppointmentService
             result = Result<IEnumerable<AppointmentDto>>.Failure(ex);
         }
 
-        result:
+    result:
         return result;
     }
 
@@ -156,7 +156,7 @@ public class AppointmentService : IAppointmentService
             result = Result<AppointmentDto>.Failure(ex);
         }
 
-        result:
+    result:
         return result;
     }
 }
