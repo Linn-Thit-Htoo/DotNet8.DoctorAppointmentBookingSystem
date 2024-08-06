@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Doctor;
 
-namespace DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Doctor
+public class CreateDoctorDto
 {
-    public class CreateDoctorDto
-    {
-        public string DoctorName { get; set; } = null!;
+    public string DoctorName { get; set; } = null!;
 
-        public string Speciality { get; set; } = null!;
-    }
+    public string Speciality { get; set; } = null!;
 }
