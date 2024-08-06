@@ -1,8 +1,4 @@
-﻿using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Appointment;
-using DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment;
-using Microsoft.AspNetCore.Mvc;
-
-namespace DotNet8.DoctorAppointmentBookingSystem.Api.Controllers;
+﻿namespace DotNet8.DoctorAppointmentBookingSystem.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

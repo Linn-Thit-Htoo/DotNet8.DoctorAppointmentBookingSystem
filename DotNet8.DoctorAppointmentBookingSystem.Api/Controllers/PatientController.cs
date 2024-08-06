@@ -1,7 +1,6 @@
 ﻿using DotNet8.DoctorAppointmentBookingSystem.Dtos.Features.Patient;
 using DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.DoctorAppointmentBookingSystem.Api.Controllers
 {
