@@ -17,7 +17,7 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Api.Utils
 
         public static Result<T> SaveSuccess(string message = "Saving Successful.", EnumStatusCode statusCode = EnumStatusCode.Success)
             => Result<T>.Success(message, statusCode);
-        
+
         public static Result<T> UpdateSuccess(string message = "Updating Successful.", EnumStatusCode statusCode = EnumStatusCode.Success)
             => Result<T>.Success(message, statusCode);
 
@@ -29,5 +29,11 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Api.Utils
 
         public static Result<T> Failure(Exception ex)
             => new() { Message = ex.ToString(), StatusCode = EnumStatusCode.InternalServerError, IsSuccess = false };
+
+        public static Result<T> NotFound(string message = "No Data Found.")
+            => Result<T>.Failure(message, EnumStatusCode.NotFound);
+
+        public static Result<T> Duplicate(string message = "Duplicate Data.")
+            => Result<T>.Failure(message, EnumStatusCode.Conflict);
     }
 }
