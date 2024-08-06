@@ -67,6 +67,8 @@ public class AppointmentController : BaseController
 
     #endregion
 
+    #region Get Appointments By Patient Id
+
     [HttpGet("patient/{patientId}")]
     public async Task<IActionResult> GetAppointmentsByPatientId(
         string patientId,
@@ -79,4 +81,6 @@ public class AppointmentController : BaseController
         );
         return Content(result);
     }
+
+    #endregion
 }
