@@ -1,5 +1,3 @@
-using DotNet8.DoctorAppointmentBookingSystem.Api;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
