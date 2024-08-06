@@ -43,14 +43,21 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor
             Result<DoctorDto> result;
             try
             {
-                var item = await _context.TblDoctors.FindAsync(id);
-                result = Result<DoctorDto>.Success(item!.ToDto());
+                var item = await _context.TblDoctors.FindAsync([id], cancellationToken: cancellationToken);
+                if (item is null)
+                {
+                    result = Result<DoctorDto>.NotFound("Doctor Not Found.");
+                    goto result;
+                }
+
+                result = Result<DoctorDto>.Success(item.ToDto());
             }
             catch (Exception ex)
             {
                 result = Result<DoctorDto>.Failure(ex);
             }
 
+        result:
             return result;
         }
 

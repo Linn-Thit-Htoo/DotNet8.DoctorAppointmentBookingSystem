@@ -23,6 +23,13 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Api.Controllers
             return Content(result);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetDoctor(string id, CancellationToken cancellationToken)
+        {
+            var result = await _doctorService.GetDoctorByIdAsync(id, cancellationToken);
+            return Content(result);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateDoctor([FromBody] CreateDoctorDto doctorDto, CancellationToken cancellationToken)
         {
