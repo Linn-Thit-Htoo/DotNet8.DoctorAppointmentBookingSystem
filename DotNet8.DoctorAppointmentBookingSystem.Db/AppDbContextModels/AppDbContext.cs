@@ -1,16 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
 
-public partial class DoctorAppointmentBookingSystemContext : DbContext
+public partial class AppDbContext : DbContext
 {
-    public DoctorAppointmentBookingSystemContext()
+    public AppDbContext()
     {
     }
 
-    public DoctorAppointmentBookingSystemContext(DbContextOptions<DoctorAppointmentBookingSystemContext> options)
+    public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
     {
     }

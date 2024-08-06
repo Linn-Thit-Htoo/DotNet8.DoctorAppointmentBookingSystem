@@ -13,9 +13,9 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor
 {
     public class DoctorService : IDoctorService
     {
-        private readonly DoctorAppointmentBookingSystemContext _context;
+        private readonly AppDbContext _context;
 
-        public DoctorService(DoctorAppointmentBookingSystemContext context)
+        public DoctorService(AppDbContext context)
         {
             _context = context;
         }
