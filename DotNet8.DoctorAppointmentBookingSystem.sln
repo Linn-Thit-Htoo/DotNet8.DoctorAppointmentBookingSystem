@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{8DC8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.DoctorAppointmentBookingSystem.Api", "DotNet8.DoctorAppointmentBookingSystem.Api\DotNet8.DoctorAppointmentBookingSystem.Api.csproj", "{28F98976-DBC9-4F8E-97F1-C0D985239F9F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{B857795E-1D66-4290-9228-BF1FD2461907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.DoctorAppointmentBookingSystem.Shared.Models", "DotNet8.DoctorAppointmentBookingSystem.Shared.Models\DotNet8.DoctorAppointmentBookingSystem.Shared.Models.csproj", "{0A21D7CE-803B-4805-A0F4-A2621E450550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,10 @@ Global
 		{28F98976-DBC9-4F8E-97F1-C0D985239F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28F98976-DBC9-4F8E-97F1-C0D985239F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28F98976-DBC9-4F8E-97F1-C0D985239F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A21D7CE-803B-4805-A0F4-A2621E450550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A21D7CE-803B-4805-A0F4-A2621E450550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A21D7CE-803B-4805-A0F4-A2621E450550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A21D7CE-803B-4805-A0F4-A2621E450550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +44,8 @@ Global
 		{5498D6C0-E34B-4B5D-96EE-021E12FEE110} = {427E1B8E-1267-434D-A1DC-7D922E4FD433}
 		{8DC871E5-BA63-480B-91D5-5937567182D0} = {F5975672-8FD6-4328-8DC2-88BBC78548F3}
 		{28F98976-DBC9-4F8E-97F1-C0D985239F9F} = {8DC871E5-BA63-480B-91D5-5937567182D0}
+		{B857795E-1D66-4290-9228-BF1FD2461907} = {F5975672-8FD6-4328-8DC2-88BBC78548F3}
+		{0A21D7CE-803B-4805-A0F4-A2621E450550} = {B857795E-1D66-4290-9228-BF1FD2461907}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B06A6794-0E13-48B0-9F8D-650711BAAF1D}
