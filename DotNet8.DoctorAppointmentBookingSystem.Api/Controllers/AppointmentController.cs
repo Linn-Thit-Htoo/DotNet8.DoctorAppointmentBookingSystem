@@ -11,6 +11,8 @@ public class AppointmentController : BaseController
         _appointmentService = appointmentService;
     }
 
+    #region Get Appointments
+
     [HttpGet]
     public async Task<IActionResult> GetAppointments(CancellationToken cancellationToken)
     {
@@ -18,12 +20,20 @@ public class AppointmentController : BaseController
         return Content(result);
     }
 
+    #endregion
+
+    #region Get Appointment
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAppointment(string id, CancellationToken cancellationToken)
     {
         var result = await _appointmentService.GetAppointmentByIdAsync(id, cancellationToken);
         return Content(result);
     }
+
+    #endregion
+
+    #region Book Appointment
 
     [HttpPost]
     public async Task<IActionResult> BookAppointment(
@@ -37,6 +47,8 @@ public class AppointmentController : BaseController
         );
         return Content(result);
     }
+
+    #endregion
 
     [HttpGet("doctor/{doctorId}")]
     public async Task<IActionResult> GetAppointmentsByDoctorId(
