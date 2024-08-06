@@ -65,6 +65,8 @@ public class DoctorService : IDoctorService
 
     #endregion
 
+    #region Add Doctor Async
+
     public async Task<Result<DoctorDto>> AddDoctorAsync(
         CreateDoctorDto requestModel,
         CancellationToken cancellationToken
@@ -85,4 +87,6 @@ public class DoctorService : IDoctorService
 
         return result;
     }
+
+    #endregion
 }
