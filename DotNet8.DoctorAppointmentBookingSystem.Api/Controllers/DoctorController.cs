@@ -33,6 +33,8 @@ public class DoctorController : BaseController
 
     #endregion
 
+    #region Create Doctor
+
     [HttpPost]
     public async Task<IActionResult> CreateDoctor(
         [FromBody] CreateDoctorDto doctorDto,
@@ -42,4 +44,6 @@ public class DoctorController : BaseController
         var result = await _doctorService.AddDoctorAsync(doctorDto, cancellationToken);
         return Content(result);
     }
+
+    #endregion
 }
