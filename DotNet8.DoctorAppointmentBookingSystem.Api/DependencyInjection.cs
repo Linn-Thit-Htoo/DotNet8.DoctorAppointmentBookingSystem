@@ -1,4 +1,5 @@
 ﻿using DotNet8.DoctorAppointmentBookingSystem.Db.AppDbContextModels;
+using DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Appointment;
 using DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Doctor;
 using DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,7 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Api
         {
             services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<IPatientService, PatientService>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
             return services;
         }
     }
