@@ -39,5 +39,14 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Extensions
                 PatientName = dataModel.PatientName
             };
         }
+
+        public static TblPatient ToEntity(this CreatePatientDto patientDto)
+        {
+            return new TblPatient
+            {
+                PatientId = Ulid.NewUlid().ToString(),
+                PatientName = patientDto.PatientName
+            };
+        }
     }
 }

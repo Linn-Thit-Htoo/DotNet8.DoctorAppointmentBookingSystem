@@ -12,5 +12,6 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient
     {
         Task<Result<IEnumerable<PatientDto>>> GetPatientsAsync(CancellationToken cancellationToken);
         Task<Result<PatientDto>> GetPatientByIdAsync(string id, CancellationToken cancellationToken);
+        Task<Result<PatientDto>> AddPatientAsync(CreatePatientDto patientDto, CancellationToken cancellationToken);
     }
 }

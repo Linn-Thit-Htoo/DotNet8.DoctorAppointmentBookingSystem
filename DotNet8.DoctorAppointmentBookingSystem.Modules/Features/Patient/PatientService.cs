@@ -58,5 +58,23 @@ namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient
         result:
             return result;
         }
+
+        public async Task<Result<PatientDto>> AddPatientAsync(CreatePatientDto patientDto, CancellationToken cancellationToken)
+        {
+            Result<PatientDto> result;
+            try
+            {
+                await _context.TblPatients.AddAsync(patientDto.ToEntity(), cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                result = Result<PatientDto>.SaveSuccess();
+            }
+            catch (Exception ex)
+            {
+                result = Result<PatientDto>.Failure(ex);
+            }
+
+            return result;
+        }
     }
 }
