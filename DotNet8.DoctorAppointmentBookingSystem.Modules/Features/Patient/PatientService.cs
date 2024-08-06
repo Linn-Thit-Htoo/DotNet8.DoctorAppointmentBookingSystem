@@ -66,6 +66,8 @@ public class PatientService : IPatientService
 
     #endregion
 
+    #region Add Patient Async
+
     public async Task<Result<PatientDto>> AddPatientAsync(
         CreatePatientDto patientDto,
         CancellationToken cancellationToken
@@ -86,4 +88,6 @@ public class PatientService : IPatientService
 
         return result;
     }
+
+    #endregion
 }
