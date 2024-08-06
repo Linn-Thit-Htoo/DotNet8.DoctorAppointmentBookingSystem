@@ -1,75 +1,81 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient;
 
-namespace DotNet8.DoctorAppointmentBookingSystem.Modules.Features.Patient
+public class PatientService : IPatientService
 {
-    public class PatientService : IPatientService
+    private readonly AppDbContext _context;
+
+    public PatientService(AppDbContext context)
     {
-        private readonly AppDbContext _context;
+        _context = context;
+    }
 
-        public PatientService(AppDbContext context)
+    public async Task<Result<IEnumerable<PatientDto>>> GetPatientsAsync(
+        CancellationToken cancellationToken
+    )
+    {
+        Result<IEnumerable<PatientDto>> result;
+        try
         {
-            _context = context;
+            var lst = await _context
+                .TblPatients.OrderByDescending(x => x.PatientId)
+                .ToListAsync(cancellationToken);
+            result = Result<IEnumerable<PatientDto>>.Success(lst.Select(x => x.ToDto()));
+        }
+        catch (Exception ex)
+        {
+            result = Result<IEnumerable<PatientDto>>.Failure(ex);
         }
 
-        public async Task<Result<IEnumerable<PatientDto>>> GetPatientsAsync(CancellationToken cancellationToken)
+        return result;
+    }
+
+    public async Task<Result<PatientDto>> GetPatientByIdAsync(
+        string id,
+        CancellationToken cancellationToken
+    )
+    {
+        Result<PatientDto> result;
+        try
         {
-            Result<IEnumerable<PatientDto>> result;
-            try
+            var item = await _context.TblPatients.FindAsync(
+                [id],
+                cancellationToken: cancellationToken
+            );
+            if (item is null)
             {
-                var lst = await _context.TblPatients.OrderByDescending(x => x.PatientId).ToListAsync(cancellationToken);
-                result = Result<IEnumerable<PatientDto>>.Success(lst.Select(x => x.ToDto()));
-            }
-            catch (Exception ex)
-            {
-                result = Result<IEnumerable<PatientDto>>.Failure(ex);
+                result = Result<PatientDto>.NotFound("No Patient Found.");
+                goto result;
             }
 
-            return result;
+            result = Result<PatientDto>.Success(item.ToDto());
         }
-
-        public async Task<Result<PatientDto>> GetPatientByIdAsync(string id, CancellationToken cancellationToken)
+        catch (Exception ex)
         {
-            Result<PatientDto> result;
-            try
-            {
-                var item = await _context.TblPatients.FindAsync([id], cancellationToken: cancellationToken);
-                if (item is null)
-                {
-                    result = Result<PatientDto>.NotFound("No Patient Found.");
-                    goto result;
-                }
-
-                result = Result<PatientDto>.Success(item.ToDto());
-            }
-            catch (Exception ex)
-            {
-                result = Result<PatientDto>.Failure(ex);
-            }
+            result = Result<PatientDto>.Failure(ex);
+        }
 
         result:
-            return result;
-        }
+        return result;
+    }
 
-        public async Task<Result<PatientDto>> AddPatientAsync(CreatePatientDto patientDto, CancellationToken cancellationToken)
+    public async Task<Result<PatientDto>> AddPatientAsync(
+        CreatePatientDto patientDto,
+        CancellationToken cancellationToken
+    )
+    {
+        Result<PatientDto> result;
+        try
         {
-            Result<PatientDto> result;
-            try
-            {
-                await _context.TblPatients.AddAsync(patientDto.ToEntity(), cancellationToken);
-                await _context.SaveChangesAsync(cancellationToken);
+            await _context.TblPatients.AddAsync(patientDto.ToEntity(), cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
 
-                result = Result<PatientDto>.SaveSuccess();
-            }
-            catch (Exception ex)
-            {
-                result = Result<PatientDto>.Failure(ex);
-            }
-
-            return result;
+            result = Result<PatientDto>.SaveSuccess();
         }
+        catch (Exception ex)
+        {
+            result = Result<PatientDto>.Failure(ex);
+        }
+
+        return result;
     }
 }
